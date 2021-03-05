@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ChatsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mensagens</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+
+    <ion-item-sliding>
+
+      <ion-item [routerLink]="'/chat-group/'">
+        <ion-avatar slot="start">
+          <img class="profile-picture" src="../../assets/img/logo-elo.png" alt=""/>
+        </ion-avatar>
+        <ion-label class="ion-text-wrap">
+          <ion-text color="primary">
+            <h2>Grupo Eloverde</h2>
+          </ion-text>
+          <p><strong>Rômulo:</strong> Nice try! Let's keep improving</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options>
+        <ion-item-option color="warning">
+          Silenciar
+        </ion-item-option>
+        <ion-item-option color="danger">
+          Sair do grupo
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    
+
+    <ion-item-sliding *ngFor="let chat of chats">
+
+      <ion-item [routerLink]="'/chats/' + chat.id">
+        <ion-avatar slot="start">
+          <img class="profile-picture" src="{{ chat.face }}" alt=""/>
+        </ion-avatar>
+        <ion-label class="ion-text-wrap">
+          <ion-text color="primary">
+            <h2>{{chat.name}}</h2>
+          </ion-text>
+          <p>{{chat.lastText}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options>
+        <ion-item-option color="warning">
+          Silenciar
+        </ion-item-option>
+        <ion-item-option color="danger">
+          Deletar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

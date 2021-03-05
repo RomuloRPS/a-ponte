@@ -1,0 +1,88 @@
+<!--
+  Generated template for the UserPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary" class="no-border">
+    <ion-title>{{ user.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div class="ion-text-center user-profile primary-bg">
+
+    <img class="profile-picture" src="{{ user.face}}">
+    
+    <h5><strong>MINI BIO</strong></h5 >
+
+    <p style="text-align: center; width: 80%; margin: auto; font-style: italic;">"{{user.name}} é um economista brasileiro, professor da Escola de Administração de Empresas da Fundação Getúlio Vargas e comentarista da rádio Jovem Pan"</p>
+
+    <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <span class="number">{{ user.followers }}</span>
+          <span class="desc">Seguidores</span>
+        </ion-col>
+        <ion-col size="4">
+          <span class="number">{{ user.following }}</span>
+          <span class="desc">Seguindo</span>
+        </ion-col>
+        <ion-col size="4">
+          <span class="number">{{ user.favorites }}</span>
+          <span class="desc">Favoritos</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-title>Interesses</ion-title>
+      </ion-list-header>
+      
+      <ion-item lines="full">
+        <ion-icon slot="start" color="success" name="checkmark-circle-outline"></ion-icon>
+        <ion-label>Software</ion-label>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-icon slot="start" color="success" name="checkmark-circle-outline"></ion-icon>
+        <ion-label>Gestão</ion-label>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-icon slot="start" color="success" name="checkmark-circle-outline"></ion-icon>
+        <ion-label>Recursos Humanos</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-title>Convênios</ion-title>
+      </ion-list-header>
+      
+      <ion-item lines="full">
+        <ion-icon color="warning" slot="start"  name="pricetag-outline"></ion-icon>
+        <ion-label>Unimed</ion-label>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-icon color="warning" slot="start"  name="pricetag-outline"></ion-icon>
+        <ion-label>Uniodonto</ion-label>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-icon color="warning" slot="start" name="pricetag-outline"></ion-icon>
+        <ion-label>Farmácia do trabalhador</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  
+</ion-content>

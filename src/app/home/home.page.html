@@ -1,0 +1,144 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Início</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Live Tim Cook</ion-card-title>
+      <ion-card-subtitle>Online agora, live com Tim Cook - CEO Apple</ion-card-subtitle>
+    </ion-card-header>
+        <ion-img src="https://macmagazine.com.br/wp-content/uploads/2018/06/13-cook.jpg">
+          
+        </ion-img>
+
+        <h2 style="text-align: center;">Participantes</h2>
+        <ion-item lines="full">
+          <ion-icon slot="start" item-left name="person-outline" color="primary"></ion-icon>
+          <ion-label>Rômulo</ion-label>
+        </ion-item>
+
+        <ion-item lines="full" >
+          <ion-icon slot="start" item-left name="person-outline" color="primary"></ion-icon>
+          <ion-label>André</ion-label>
+        </ion-item>
+
+        <ion-item lines="full" >
+          <ion-icon slot="start" item-left name="person-outline" color="primary"></ion-icon>
+          <ion-label>Leonardo</ion-label>
+        </ion-item>
+        <ion-item lines="none" >
+          <ion-label color="primary" style="text-align: center;">... mais 947</ion-label>
+        </ion-item>
+        <div style="text-align: center; margin: auto;">
+          <ion-button >
+            Participar
+          </ion-button>
+        </div>
+  </ion-card>
+
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Eventos</ion-card-title>
+      <ion-card-subtitle>Fique por dentro do que vai ocorrer na semana</ion-card-subtitle>
+    </ion-card-header>
+    
+        <ion-item lines="none" >
+          <ion-icon slot="start" item-left name="calendar-outline" color="primary"></ion-icon>
+          <ion-text>
+            Entrevista com Mark Zuckerberg
+            <br>
+            <span style="font-size: small;">Quinta - 04/03/2021 19:00</span>
+          </ion-text>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon icon="notifications-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+
+        <ion-item lines="none" style="padding-top: 10px; padding-bottom: 10px;">
+          <ion-icon slot="start" item-left name="calendar-outline" color="primary"></ion-icon>
+          <ion-text>Entrevista com Jeff Bezos
+            <br>
+            <span style="font-size: small;">Sexta - 05/03/2021 19:00</span>
+          </ion-text>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon icon="notifications-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+
+        <ion-item lines="none" style="padding-top: 10px; padding-bottom: 10px;">
+          <ion-icon slot="start" item-left name="calendar-outline" color="primary"></ion-icon>
+          <ion-text>Entrevista com Elon Musk
+            <br>
+            <span style="font-size: small;">Sábado - 06/03/2021 19:00</span>
+          </ion-text>
+          
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon icon="notifications-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        <br>
+  </ion-card>
+
+  <ion-card *ngFor="let post of posts">
+    <ion-item lines="full">
+      <ion-avatar slot="start" [routerLink]="'/users/' + post.user_id">
+        <img src="{{ post.face }}">
+      </ion-avatar>
+      <ion-label>
+        <h2 [routerLink]="'/users/' + post.user_id">{{ post.name }}</h2>
+        <p>{{ post.time }}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="post-body" lines="full">
+      <ion-label class="ion-text-wrap">
+        <div [routerLink]="'/posts/' + post.id">
+          <img class="full-image" *ngIf="post.image" src="{{ post.image }}">
+          <p class="ion-padding-top ion-padding-bottom">{{ post.content }}</p>
+        </div>
+
+        <div>
+          <span [routerLink]="'/posts/' + post.id" class="subdued">{{ post.likeCount}} Curtidas</span>
+          <span class="ion-margin-start subdued" [routerLink]="'/posts/' + post.id">{{ post.commentCount}}
+            Comentários</span>
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <ion-grid class="post-actions">
+      <ion-row>
+        <ion-col size="4" class="ion-text-center" (click)="toggleLike(post)">
+          <ion-icon name="heart" color="primary" *ngIf="post.liked"></ion-icon>
+          <ion-icon name="heart-outline" *ngIf="!post.liked"></ion-icon>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center" [routerLink]="'/posts/' + post.id">
+          <ion-icon name="chatbox-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-icon name="share-social-outline"></ion-icon>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+</ion-content>

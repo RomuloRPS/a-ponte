@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ContactsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search-form">
+    <ion-icon name="search"></ion-icon>
+    <ion-input type="text" placeholder="{{ contacts.length }} contatos"></ion-input>
+  </div>
+
+  <ion-list lines="full">
+
+    <ion-item-sliding *ngFor="let contact of contacts">
+
+      <ion-item>
+        <ion-avatar slot="start" [routerLink]="'/users/' + contact.id">
+          <img class="profile-picture" src="{{ contact.face }}" alt=""/>
+        </ion-avatar>
+
+        <ion-label>
+          <ion-text color="primary" [routerLink]="'/users/' + contact.id">
+            <h3>{{ contact.name }}</h3>
+          </ion-text>
+          <ion-badge color="primary" *ngIf="contact.group == 'Family'">Colega de trabalho</ion-badge>
+          <ion-badge color="success" *ngIf="contact.group == 'Friend'">Amigo</ion-badge>
+        </ion-label>
+
+      </ion-item>
+
+      <ion-item-options>
+        <ion-button color="light">
+          <ion-icon name="more"></ion-icon>
+        </ion-button>
+        <ion-button color="success">
+          <ion-icon name="call"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+        </ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>
