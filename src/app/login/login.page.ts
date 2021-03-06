@@ -22,6 +22,6 @@ export class LoginPage {
 
   login() {
     this.menu.swipeGesture(true);
-    this.router.navigate(['']);
+    this.router.navigate(['home']);
   }
 }
