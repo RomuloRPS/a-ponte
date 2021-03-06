@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 
 /*
@@ -15,9 +16,13 @@ import { PostService } from '../services/post.service';
 export class WallPostsPage {
   public posts: any;
 
-  constructor(public postService: PostService) {
+  constructor(public postService: PostService, private router: Router) {
     // get sample data only
     this.posts = postService.getAll();
+  }
+
+  toCommunity() {
+    this.router.navigate(['comunity-detail']);
   }
 
   toggleLike(post) {

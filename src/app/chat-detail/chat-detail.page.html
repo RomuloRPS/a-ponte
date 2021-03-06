@@ -12,7 +12,7 @@
 
 <ion-content>
   <div *ngFor="let message of chat.messages" class="message-wrapper rlt"
-       (hold)="onMessageHold($event, $index, message)">
+       >
 
     <div *ngIf="message.type == 'received'">
 
@@ -21,7 +21,7 @@
       <div class="chat-bubble left">
 
         <div class="message">
-          {{ message.text }}e
+          {{ message.text }}
           <img src="{{ message.image }}" class="block" *ngIf="message.image" alt=""/>
         </div>
 

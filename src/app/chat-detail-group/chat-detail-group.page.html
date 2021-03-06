@@ -19,7 +19,7 @@
 <ion-content>
   <ng-container *ngFor="let message of chat.messages; let i = index">
     <div  class="message-wrapper rlt"
-    (hold)="onMessageHold($event, $index, message)">
+    >
 
  <div *ngIf="message.type == 'received'">
 
