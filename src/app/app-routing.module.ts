@@ -66,6 +66,10 @@ const routes: Routes = [
   {
     path: 'comunidades',
     loadChildren: () => import('./pages/comunity/comunity.module').then( m => m.ComunityPageModule)
+  },
+  {
+    path: 'comunity-detail',
+    loadChildren: () => import('./pages/comunity-detail/comunity-detail.module').then( m => m.ComunityDetailPageModule)
   }
 ];
 
